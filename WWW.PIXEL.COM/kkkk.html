@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>سایت پخش ویدیو</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+header {
+    background: #020617;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #020617;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    background: #020617;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: black;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    🎬 وب‌سایت پخش ویدیو
+</header>
+
+<div class="container">
+    <h3>ویدیو انتخاب کن:</h3>
+    <input type="file" accept="video/*" onchange="playVideo(event)">
+
+    <video id="videoPlayer" controls></video>
+</div>
+
+<div class="footer">
+    ساخته شده با HTML | آفلاین
+</div>
+
+<script>
+function playVideo(event) {
+    const video = document.getElementById("videoPlayer");
+    const file = event.target.files[0];
+
+    if (file) {
+        const url = URL.createObjectURL(file);
+        video.src = url;
+        video.play();
+    }
+}
+</script>
+
+</body>
+</html>
